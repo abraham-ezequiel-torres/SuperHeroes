@@ -1,0 +1,34 @@
+<h2>Villanos de Naruto</h2>
+<h3>DATOS BASE</h3>
+<ul class="villanos">
+<li *ngFor="let villano of villanos" [class.selected]="villano === selectedVillano" (click)="onSelect(villano)">
+ <span class="badge">{{villano.id}}</span>{{villano.name}}
+</li>
+</ul>
+<div *ngIf="selectedVillano">
+ <h2>
+ {{selectedVillano.name | uppercase}} Datos Modificados
+ </h2>
+ <ul class="villanos">
+ <li>
+ <label class="badge" for="villano-name">Nombre del villano</label>
+ <span ></span>{{selectedVillano.name}}
+ </li>
+ </ul>
+ <ul class="villanos">
+ <li>
+ <label class="badge" for="villano-name">Poder:</label>
+ <span ></span>{{selectedVillano.namepower}}
+ </li>
+ </ul>
+ <ul class="villanos">
+ <li>
+ <label class="badge" for="villano-name">Nivel Poder:</label>
+ <span >{{selectedVillano.nivel+numero}}</span>
+ </li>
+ </ul>
+<label for="hero-universo">Aumentar - Disminuir poder: </label>
+ <button (click) = 'acumulador(base)'>+{{base}}</button>
+ <input id="hero-universo" placeholder={{selectedVillano.nivel+numero}}>
+ <button (click)='acumulador(-base)'>-{{base}}</button>
+</div>
